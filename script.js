@@ -1,1 +1,4 @@
-document.querySelector('.menu').addEventListener('click',()=>document.querySelector('.links').classList.toggle('open'));document.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>document.querySelector('.links').classList.remove('open')));
+const menu=document.querySelector('.menu');const links=document.querySelector('.links');if(menu){menu.addEventListener('click',()=>links.classList.toggle('open'));document.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')))}
+const target=new Date('2027-09-11T18:00:00+02:00').getTime();
+function updateCountdown(){const now=Date.now();let diff=Math.max(0,target-now);const d=Math.floor(diff/86400000);diff%=86400000;const h=Math.floor(diff/3600000);diff%=3600000;const m=Math.floor(diff/60000);const s=Math.floor((diff%60000)/1000);for(const [id,v] of [['days',d],['hours',h],['minutes',m],['seconds',s]]){const el=document.getElementById(id);if(el)el.textContent=String(v).padStart(2,'0')}}
+updateCountdown();setInterval(updateCountdown,1000);
